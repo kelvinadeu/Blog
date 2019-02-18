@@ -1,0 +1,9 @@
+{% macro displaySingleList(single_list) %}
+{% for general in single_list %}
+
+<li>{{general.id}}
+  {{general.author}}
+  <a href="/quotes/{{general.id}}">{{general.id}}</a>
+</li>
+{% endfor %}
+{% endmacro %}

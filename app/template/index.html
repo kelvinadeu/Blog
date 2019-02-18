@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+
+{% block content %}
+<div class="continer">
+<ul>
+  {{macro.displaySingleList(general)}}
+</ul>
+</div>
+
+{% endblock %}

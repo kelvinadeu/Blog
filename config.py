@@ -5,16 +5,18 @@ class Config:
     General configuration parent class
 
     '''
-    # pass
-    SOURCE_BASE_URL='http://quotes.stormconsultancy.co.uk/random.json'
-
-    
-    NEWS_API_KEY=os.environ.get('NEWS_API_KEY')
     SECRET_KEY=os.environ.get('SECRET_KEY')
+
+    BASE_URL='http://quotes.stormconsultancy.co.uk/{}.json'
+
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:wati@localhost/blogs'
+
 
     DEBUG = True
 
 class ProdConfig(Config):
+
+    pass
 
     '''
     Production  configuration child class
