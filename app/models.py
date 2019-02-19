@@ -102,8 +102,8 @@ class Comment():
         Blogs.all_blogs.delete()
 
 
-class Single:
-    def __init__(self,id,author,quotes):
+class Random:
+    def __init__(self,id,author,quote):
         self.id=id
         self.author=author
-        self.quote=quotes
+        self.quote=quote

@@ -9,13 +9,10 @@ from ..request import *
 @main.route('/')
 def index():
 
-    title = 'Home Page - Welcome to wat Blogs, your daily inspiration'
+    today =get_single('random')
+    print(today)
 
-    single =get_single()
-    single_author=single("author")
-
-
-    return render_template('index.html', title=title,get_single = get_single)
+    return render_template('index.html', title=title,today = today)
 
 @main.route('/new_blog', methods = ['GET','POST'])
 @login_required
