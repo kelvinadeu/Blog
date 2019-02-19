@@ -10,14 +10,14 @@ class Config:
     BASE_URL='http://quotes.stormconsultancy.co.uk/{}.json'
 
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringaschool:1234localhost/kevblog'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
     DEBUG = True
 
 class ProdConfig(Config):
 
-    pass
-
+    SQLALCHEMY_DATABASE_URI =os.environ.get('DATABASE_URL')
     '''
     Production  configuration child class
 
@@ -35,7 +35,7 @@ class DevConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringaschool:1234localhost/kevblog'
 
 
 
