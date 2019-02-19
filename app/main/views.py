@@ -4,15 +4,19 @@ from flask_login import login_required
 from ..models import User,Blogs
 from .forms import AddBlogForm
 from .. import db
-from ..request import *
+
+import requests
+import json
 
 @main.route('/')
 def index():
+    #
+    # random = requests.get('http://quotes.stormconsultancy.co.uk/random.json').json()
 
-    today =get_single('random')
-    print(today)
+    # print(random)
 
-    return render_template('index.html', title=title,today = today)
+    return render_template('index.html')
+    # return render_template('index.html',random = random)
 
 @main.route('/new_blog', methods = ['GET','POST'])
 @login_required
