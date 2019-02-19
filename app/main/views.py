@@ -11,10 +11,6 @@ def index():
 
     title = 'Home Page - Welcome to wat Blogs, your daily inspiration'
 
-    # index=Blogs.query.all()
-
-    # first=Blog.query.limit(1).all()
-
     single =get_single()
     single_author=single("author")
 
