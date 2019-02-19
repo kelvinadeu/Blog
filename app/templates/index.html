@@ -1,12 +1,45 @@
 {% extends 'base.html'%}
 
-{% block styles%}
-    {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
-{% endblock%}
-
 {% block content %}
+<br>
+<br>
+<br>
+<br>
 <div>
-  <p>sasa</p>
-</div>
-{% endblock%}
+  <div class="container-fluid">
+    <div class="row" id="one">
+      <div class="col-md-8">
+        <div class="cards">
+          <hr>
+          <h4>BLOG TODAY</h4>
+          <hr>
+          {% for blog in first %}
+          <h3>{{blog.post}}</h3>
+          {% endfor %}
+          <img src="http://geeksval.com/Themes/SimplexTheme/Content/images/blog.jpg" alt="my image" height="230px" width="120%">
+          <div class="middle">
+            <a class="btn btn-info btn-lg text-center" href="/view_blogs"> Read More</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <h4>Blogs</h4>
+            {% for blog in index %}
+            <div class="card-three">
+              <h3>{{blog.body}}</h3>
+              <p>By:{{blog.post}}</p>
+              <p>Posted at {{blog.date_posted}}</p>
+              <p><a href="/comment">leave comment</a></p>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="col-md-2">
+          <hr>
+          <h3>Quotes</h3>
+
+          <h4>Quote by {{random.author}}</h4>
+          <p>~<em>{{random.quote}}</em></p>
+        </div>
+
+        {% endblock %}

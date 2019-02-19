@@ -11,12 +11,12 @@ import json
 @main.route('/')
 def index():
     #
-    # random = requests.get('http://quotes.stormconsultancy.co.uk/random.json').json()
+    random = requests.get('http://quotes.stormconsultancy.co.uk/random.json').json()
 
     # print(random)
 
-    return render_template('index.html')
-    # return render_template('index.html',random = random)
+    # return render_template('index.html')
+    return render_template('index.html',random = random)
 
 @main.route('/new_blog', methods = ['GET','POST'])
 @login_required

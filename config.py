@@ -5,7 +5,7 @@ class Config:
     General configuration parent class
 
     '''
-    SECRET_KEY=os.environ.get('SECRET_KEY')
+    SECRET_KEY = 'abottleofwater'
 
     BASE_URL='http://quotes.stormconsultancy.co.uk/{}.json'
 
