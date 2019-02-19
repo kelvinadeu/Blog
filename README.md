@@ -8,7 +8,7 @@
 #### This is an app that allows users to view  blogs written by ADEU .
 
 # Technologies Used
-####Python 3.6
+#### Python 3.6
 
 #### HTML
 
@@ -47,7 +47,7 @@ Copy the clone command.
 
 #### to clone the app
 
-$ git clone https://github.com/watibini/blogs.git
+
 
 Run the following command to make the app executable;
 $ chmod a+x start.sh
