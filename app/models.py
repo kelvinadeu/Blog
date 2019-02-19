@@ -8,15 +8,15 @@ from datetime import datetime
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-class User(UserMixin,db.model):
+class User(UserMixin,db.Model):
     __tablename__ = 'users'
 
-    id = db.Column(db.Interger,primary_key = True)
+    id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255),index = True)
     name = db.Column(db.String(255),index = True)
     email = db.Column(db.String(255),unique = True)
-    password_hash = db.Column(db.String(255))
-    bio = db.Column(db.Column(255))
+    pass_secure = db.Column(db.String(255))
+    bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     the_blog = db.relationship('Blogs',backref = 'user',lazy='dynamic')
     comment = db.relationship('comment',backref='user',lazy='dynamic')
@@ -43,14 +43,14 @@ class Role(db.Model):
     name = db.Column(db.String(255))
     users = db.relationship('User',backref = 'role',lazy="dynamic")
 
-class Blogs(db.model):
+class Blogs():
     blog_list=[]
     __tablename__='blogs'
-    id = db.Column(db.Interger,primary_key=True)
+    # id = db.Column(db.,primary_key=True)
     post = db.Column(db.String(255),index = True)
     title = db.Column(db.String(255),index = True)
     Posted = db.Column(db.DateTime,default = datetime.utcnow)
-    user_id = db.Column(db.Interger,db.ForeignKey('users.id'))
+    # user_id = db.Column(db.Interger,db.ForeignKey('users.id'))
     comments = db.ForeignKey('comment',lazy = 'dynamic')
 
     def __init__(self,title,post,user):
@@ -71,14 +71,14 @@ class Blogs(db.model):
     def delete_all_blogs(cls):
         Blogs.all_blog.delete()
 
-class Comment(db.model):
+class Comment():
     comments_list=[]
     __tablename__='comments'
 
-    id = db.Column(db.Interger,primary_key =True)
+    # id = db.Column(db.Interger,primary_key =True)
     name = db.Column(db.String(255),index = True)
     email = db.Column(db.String(255),index= True)
-    blog_id = db.Column(db.Interger,db.ForeignKey('blog_id'))
+    # blog_id = db.Column(db.Interger,db.ForeignKey('blog_id'))
     commenter_id = db.Column(db.String(255),index = True)
     posted = db.Column(db.DateTime,default = datetime.utcnow)
 
