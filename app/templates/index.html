@@ -1,17 +1,61 @@
-{% extends 'base.html' %}
-{% import 'macros.html' as macro %}
+{% extends 'base.html'%}
 
 {% block content %}
 
-<div class="container">
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock%}
 
-  <ul>
-    {% for item in new_single %}
-    <li>
-      {{ item.author }}
-    </li>
-    {% endfor %}
-  </ul>
-</div>
+<div class="container-fluid">
+  <div class="row" id="one">
+    <div class="col-md-8">
 
-{% endblock %}
+      <div class="cards">
+        <hr>
+        <h4>TOP BLOG TODAY</h4>
+        <hr>
+        {% for blog in first %}
+          <h3>{{blog.post}}</h3>
+        {% endfor %}
+        <img src="https://images.fastcompany.net/image/upload/w_1280,f_auto,q_auto,fl_lossy/wp-cms/uploads/2017/06/p-1-3-secrets-of-people-who-always-get-job-offers.jpg" alt="my image" height="200px" width="100%">
+        <div class="middle">
+          <a class="btn btn-info btn-lg text-center" href="/view_blogs"> Read More</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <h4>Popular Blogs</h4>
+          {% for blog in index %}
+          <div class="card-three">
+            <h3>{{blog.body}}</h3>
+            <p>By:{{blog.post}}</p>
+            <p>Posted at {{blog.date_posted}}</p>
+            <p><a href="/comment">leave comment</a></p>
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-2">
+      <hr>
+      <h3>Quotes</h3>
+      <hr>
+      {%for items in popular%}
+      <hr>
+      <div class="cards-two">
+      <h4>Quote by {{items.author}}</h4>
+      <p>~<em>{{items.quote}}</em></p>
+      </div>
+      <br>
+
+      {%endfor%}
+
+<a class="btn btn-success btn-lg text-center" href="/new_blog"> Add a new =blog</a>
+    </div>
+  </div>
+</div> -->
+{% endblock%}
