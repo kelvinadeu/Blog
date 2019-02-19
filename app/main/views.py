@@ -15,9 +15,11 @@ def index():
 
     # first=Blog.query.limit(1).all()
 
-    # popular = get_quote('popular')
+    single =get_single()
+    single_author=single("author")
 
-    # return render_template('index.html', title=title,popular=popular,index=index,first=first)
+
+    return render_template('index.html', title=title,get_single = get_single)
 
 @main.route('/new_blog', methods = ['GET','POST'])
 @login_required
