@@ -1,9 +1,6 @@
-{% macro displaySingleList(single_list) %}
-{% for general in single_list %}
+{% macro displayblogs(blog_list) %}
+    {% for blog in blog_list %}
 
-<li>{{general.id}}
-  {{general.author}}
-  <a href="/quotes/{{general.id}}">{{general.id}}</a>
-</li>
-{% endfor %}
+        <p> {{ blog.pitch }}</p>
+    {% endfor %}
 {% endmacro %}
