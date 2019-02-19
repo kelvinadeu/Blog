@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+
+{% block content %}
+
+<div class="container">
+
+  <ul>
+    {% for item in new_single %}
+    <li>
+      {{ item.author }}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% endblock %}

@@ -26,16 +26,15 @@ def create_app(config_name):
     login_manager.init_app(app)
 
     # from .auth import auth as auth_blueprint
-    # from .main import main as main_blueprint
+    from .main import main as main_blueprint
+
+    app.register_blueprint(main_blueprint)
     #
-    # from .main import main as main_blueprint
-    # app.register_blueprint(main_blueprint)
-    # #
     # app.register_blueprint(auth_blueprint)
-    # app.register_blueprint(main_blueprint)
-    #
-    # from .request import configure_request
-    # configure_request(app)
+
+
+    from .request import configure_request
+    configure_request(app)
 
 
 

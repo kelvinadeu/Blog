@@ -9,7 +9,7 @@ class Config:
 
     BASE_URL='http://quotes.stormconsultancy.co.uk/{}.json'
 
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:wati@localhost/blogs'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringaschool:1234localhost/blog'
 
 
     DEBUG = True

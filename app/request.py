@@ -1,5 +1,5 @@
 import urllib.request,json
-from .models import Single,Random
+from .models import Single
 
 
 
@@ -11,24 +11,23 @@ base_url = get_news=None
 def configure_request(app):
 
     global base_url_single,base_url_random
-    base_url_single='GET http://quotes.stormconsultancy.co.uk/quotes/1.json'
+    base_url_single='http://quotes.stormconsultancy.co.uk/quotes.json'
     base_url_random='GET http://quotes.stormconsultancy.co.uk/random.json'
 
-def get_single(category):
+def get_single():
     '''
     function that returns the json response from url
     :return:
     '''
-    get_single_url = base_url_single.format
-    with urllib.request.urlopen(get_single_url) as url:
+    # get_single_url = base_url_single.format(category)
+    with urllib.request.urlopen(base_url_single, timeout=5) as url:
         get_single_data = url.read()
         get_single_response = json.loads(get_single_data)
 
         single_result = None
 
-        if get_single_response['singles']:
-            single_result_list = get_single_response['single']
-            single_result=process_single_result(single_result_list)
+
+        single_result=process_single_result(get_single_response)
 
 
 
@@ -41,7 +40,6 @@ def process_single_result(single_list):
         id = single.get('id')
         author = single.get('author')
         quotes = single.get('quotes')
-        single = Single(id,author,quotes)
 
         single_object = Single(id,author,quotes)
         single_result.append(single_object)
